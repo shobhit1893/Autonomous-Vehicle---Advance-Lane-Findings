@@ -73,7 +73,9 @@ I plotted a histogram and np.argmax gives the position of both lanes. Code for t
 
 I have implemented sliding window approach in the Step 7 of 'P4.ipynb'. This detects the lane pixles by stacking windows above and calculating non zero pixels. 
 
-When I have sufficient number of frames, I started looking only near to the older lanes. Code of this is implemented in Step 8 of 'P4.ipynb'. I used np.polyfit to calculate coeffiecnts and then Ay^2 + by + C to generate the curve.
+When I have sufficient number of frames, There is a function to look at average of old frames. I prefer to use sliding window as it is giving better result. Code of this is implemented in Step 8 of 'P4.ipynb'. 
+
+I used np.polyfit to calculate coeffiecnts and then Ay^2 + by + C to generate the curve.
 
 Below are the visual result of sliding window and lane_line_in_margin. 
 
@@ -90,6 +92,10 @@ I implemented this step 11 of 'P4.ipynd' in the function pipeline(). Here is an 
 
 <img src="own_images/roc.png" alt="Drawing" style="width: 400px;"/>
 
+### Visulatisation on other test images
+
+![All Images](own_images/all_images.png)
+
 ### Pipeline (video)
 1. I have provided my video in file name project_video_output.mp4 in home directory
 
@@ -99,11 +105,11 @@ I implemented this step 11 of 'P4.ipynd' in the function pipeline(). Here is an 
 1. Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust?
 
 Problems that I faced.
-    1. As I am using multiple thresholding hyper parameters, I took a while to get to the correct values of combination. I spent a lot of time tuning them.
-    2. The lines are getting jittery at places, I have done some averaging but it need to be improved.
-    3. I faced probelms when shadows and dark pathces are present on the road.
+1. As I am using multiple thresholding hyper parameters, I took a while to get to the correct values of combination. I spent a lot of time tuning them.
+2. The lines are getting jittery at places, I have done some averaging but it need to be improved.
+3. I faced probelms when shadows and dark pathces are present on the road.
     
 Pipeline if likely to fail under following events - 
-    1. Lane line gets very faded and dark (low saturation)
-    2. There is a very steap curve with significant change in directions. 
-    3. Multiple lane likes figure on road.
+1. Lane line gets very faded and dark (low saturation)
+2. There is a very steap curve with significant change in directions. 
+3. Multiple lane likes figure on road.
